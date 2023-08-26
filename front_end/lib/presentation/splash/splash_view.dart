@@ -24,19 +24,7 @@ class _SplashViewState extends State<SplashView> {
         ),
       ),
       duration: AppConstants.splashDelay,
-      nextScreen: OnboardingView(),
+      nextScreen: const OnboardingView(),
     );
   }
 }
-
-
-// Scaffold(
-//       backgroundColor: lightColorScheme.background,
-//       body: const Center(
-//         child: Image(
-//           image: AssetImage(
-//             ImageAssets.splashLogo,
-//           ),
-//         ),
-//       ),
-//     );

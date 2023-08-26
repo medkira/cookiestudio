@@ -1,7 +1,7 @@
 import 'package:cookiestudio/domain/models.dart';
-import 'package:cookiestudio/presentation/onboarding/viewmodel/onboarding_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:cookiestudio/presentation/resources/color_manager.dart';
 import 'package:cookiestudio/presentation/resources/routes_manager.dart';
@@ -9,34 +9,50 @@ import 'package:cookiestudio/presentation/resources/strings_manager.dart';
 import 'package:cookiestudio/presentation/resources/values_manager.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../viewmodel/cubit/onboarding_viewmodel_cubit.dart';
+
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});
-
   @override
   State<OnboardingView> createState() => _OnboardingViewState();
 }
 
 class _OnboardingViewState extends State<OnboardingView> {
-  final PageController _pageController = PageController(initialPage: 0);
-
-  final OnboardingViewModel _viewModel = OnboardingViewModel();
-
-  _bind() {
-    _viewModel.start();
-  }
-
-  @override
-  void initState() {
-    _bind();
-    super.initState();
+  final OnboardingViewmodelCubit viewModel = OnboardingViewmodelCubit();
+  void bind() {
+    viewModel.start();
   }
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<SliderViewObject>(
-      stream: _viewModel.outputSliderViewObject,
-      builder: (context, snapShot) {
-        return _getContentWidget(snapShot.data);
+    // # create instance of viewmodel "create a cube".
+
+    return BlocProvider(
+      create: (context) => viewModel,
+      child: ContentWidget(context: context),
+    );
+  }
+
+  // # Call the _bind() method here to start a bind between the the view and the viewwmodel.
+  // # will run  once when the widget is built.
+  @override
+  void initState() {
+    bind();
+    super.initState();
+  }
+}
+
+class ContentWidget extends StatelessWidget {
+  final PageController _pageController = PageController(initialPage: 0);
+  final BuildContext context;
+  ContentWidget({super.key, required this.context});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<OnboardingViewmodelCubit, OnboardingViewmodelState>(
+      builder: (context, state) {
+        return _getContentWidget(
+            ((state as OnboardingViewModelSliderObject).sliderViewObject));
       },
     );
   }
@@ -58,11 +74,6 @@ class _OnboardingViewState extends State<OnboardingView> {
         body: PageView.builder(
           controller: _pageController,
           itemCount: sliderViewObject.numberOfSlide,
-          // onPageChanged: (index) {
-          //   setState(() {
-          //     _currentIndex = index;
-          //   });
-          // },
           itemBuilder: ((context, index) {
             return OnBoardingPage(
                 sliderObject: sliderViewObject.sliderObject[index]);
@@ -142,12 +153,12 @@ class _OnboardingViewState extends State<OnboardingView> {
         ),
       );
     }
-  }
 
-  @override
-  void dispose() {
-    _viewModel.dispose();
-    super.dispose();
+    // @override
+    // void dispose() {
+    //   _viewModel.dispose();
+    //   super.dispose();
+    // }
   }
 }
 
@@ -185,3 +196,40 @@ class OnBoardingPage extends StatelessWidget {
     );
   }
 }
+
+
+
+
+
+
+
+
+// class OnboardingView extends StatefulWidget {
+//   const OnboardingView({super.key});
+
+//   @override
+//   State<OnboardingView> createState() => _OnboardingViewState();
+// }
+
+// class _OnboardingViewState extends State<OnboardingView> {
+//   // # create instance of viewmodel 
+//   final OnboardingViewmodel _viewModel = OnboardingViewmodel();
+
+//   _bind() {
+//     _viewModel.start();
+//   }
+
+//   @override
+//   void initState() {
+//     _bind();
+//     super.initState();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocProvider(
+//       create: (context) => _viewModel,
+//       child: ContentWidget(context: context),
+//     );
+//   }
+// }
