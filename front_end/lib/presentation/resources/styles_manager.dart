@@ -49,6 +49,6 @@ TextStyle getBoldStyle({double fontSize = FontSize.s44, required Color color}) {
 //semiBold style
 
 TextStyle getSemiBoldStyle(
-    {double fontSize = FontSize.s44, required Color color}) {
+    {double fontSize = FontSize.s30, required Color color}) {
   return _getTextStyle(fontSize, FontWeightManager.semiBold, color);
 }

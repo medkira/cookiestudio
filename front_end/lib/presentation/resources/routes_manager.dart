@@ -1,12 +1,13 @@
+import 'package:cookiestudio/app/di.dart';
+import 'package:cookiestudio/presentation/features/login/view/login_view.dart';
+import 'package:cookiestudio/presentation/features/onboarding/view/onboarding_view.dart';
 import 'package:flutter/material.dart';
-import 'package:cookiestudio/presentation/forgot_password/forgot_password_view.dart';
-import 'package:cookiestudio/presentation/login/view/login_view.dart';
-import 'package:cookiestudio/presentation/main/main_view.dart';
-import 'package:cookiestudio/presentation/onboarding/view/onboarding_view.dart';
-import 'package:cookiestudio/presentation/register/register_view.dart';
+import 'package:cookiestudio/presentation/features/forgot_password/forgot_password_view.dart';
+import 'package:cookiestudio/presentation/features/main/main_view.dart';
+import 'package:cookiestudio/presentation/features/register/view/register_view.dart';
 import 'package:cookiestudio/presentation/resources/strings_manager.dart';
-import 'package:cookiestudio/presentation/splash/splash_view.dart';
-import 'package:cookiestudio/presentation/store_details/store_details_view.dart';
+import 'package:cookiestudio/presentation/features/splash/splash_view.dart';
+import 'package:cookiestudio/presentation/features/store_details/store_details_view.dart';
 
 class Routes {
   static const String splashRoute = "/";
@@ -28,6 +29,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => OnboardingView());
 
       case Routes.loginRoute:
+        initLoginModule();
         return MaterialPageRoute(builder: (_) => LoginView());
 
       case Routes.registerRoute:

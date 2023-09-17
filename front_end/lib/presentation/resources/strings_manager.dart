@@ -16,4 +16,22 @@ class AppStrings {
       "Embark on a delightful journey of flavors that will leave you wanting more.";
 
   static const skip = "Skip";
+  static const ok = "OK";
+
+  // ? login Strings
+  static const login = "Login";
+
+  static const email = "Email";
+  static const password = "Password";
+  static const forgetPassword = "Forget password ?";
+  static const register = "Sign up";
+
+  static const emailError = "Please enter your eamil";
+  static const passwordError = "Please enter your password";
+
+  // ? main Strings
+  static const home = "Home";
+  static const search = "Search";
+  static const profile = "Profile";
+  static const settings = "Settings";
 }

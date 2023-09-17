@@ -28,15 +28,15 @@ ThemeData getApplicationTheme() {
             fontSize: FontSize.s24, color: lightColorScheme.onPrimary)),
 
     // ? text button
-
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         textStyle: getMediumStyle(
           color: lightColorScheme.primary,
-          fontSize: FontSize.s20,
+          fontSize: FontSize.s19,
         ),
       ),
     ),
+
     // ?button theme
     buttonTheme: ButtonThemeData(
         disabledColor: lightColorScheme.inversePrimary,
@@ -45,9 +45,9 @@ ThemeData getApplicationTheme() {
     // ?elevated button theme
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        textStyle: getBoldStyle(
+        textStyle: getSemiBoldStyle(
           color: lightColorScheme.primary,
-          fontSize: FontSize.s28,
+          fontSize: FontSize.s26,
         ),
         // backgroundColor: lightColorScheme.error,
       ),
@@ -62,12 +62,15 @@ ThemeData getApplicationTheme() {
         titleMedium: getMediumStyle(
             color: lightColorScheme.onBackground, fontSize: FontSize.s18),
         bodySmall: getMediumStyle(color: lightColorScheme.onSurfaceVariant),
-        bodyLarge: getRegularStyle(color: lightColorScheme.secondary)),
+        bodyLarge: getSemiBoldStyle(
+            color: lightColorScheme.secondary, fontSize: FontSize.s18),
+        headlineLarge: getBoldStyle(
+            color: lightColorScheme.secondary, fontSize: FontSize.s35)),
 
     // ?input decoration theme (text form field)
     inputDecorationTheme: InputDecorationTheme(
       // ? content padding
-      contentPadding: const EdgeInsets.all(AppPadding.p8),
+      contentPadding: const EdgeInsets.all(AppPadding.p10),
 
       // ? hint style
       hintStyle: getRegularStyle(
