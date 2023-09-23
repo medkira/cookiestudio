@@ -38,12 +38,15 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: lightColorScheme.background,
       appBar: AppBar(
         title: Text(titles[_selectedTab]),
-        automaticallyImplyLeading: true, // ! make it false when u add a Log out
+        automaticallyImplyLeading:
+            false, // ! make it false when u add a Log out
       ),
       bottomNavigationBar: Container(
-        margin: const EdgeInsets.all(AppMargin.m12),
+        margin: const EdgeInsets.symmetric(
+            horizontal: AppMargin.m12, vertical: AppMargin.m26),
         height: AppSize.s70,
         child: ClipRRect(
           borderRadius: const BorderRadius.all(Radius.circular(AppSize.s32)),

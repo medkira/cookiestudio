@@ -36,28 +36,26 @@ class LoginViewmodelCubit extends Cubit<LoginViewmodelState>
 
   @override
   login() async {
-    if (formKey.currentState!.validate()) {
-      // # loading state
-      emit(LoginLoading());
-      (await _loginUseCase.execute(
-              LoginUseCaseInput(loginObject.userEmail, loginObject.password)))
-          .fold(
-              (failure) => {
-                    // ? left -> failure
-                    // # failure state
-                    emit(LoginFailure(failure.message)),
-                    print(failure.message),
-                    print(failure.code)
-                  },
-              (data) => {
-                    // ? right -> data (success)
-                    // # success state
-                    emit(LoginSuccess()),
-                    print(data.customer?.firstName),
-                    // Navigator.push(context,
-                    //     MaterialPageRoute(builder: (context) => RegisterView()))
-                  });
-    }
+    // # loading state
+    emit(LoginLoading());
+    (await _loginUseCase.execute(
+            LoginUseCaseInput(loginObject.userEmail, loginObject.password)))
+        .fold(
+            (failure) => {
+                  // ? left -> failure
+                  // # failure state
+                  emit(LoginFailure(failure.message)),
+                  print(failure.message),
+                  print(failure.code)
+                },
+            (data) => {
+                  // ? right -> data (success)
+                  // # success state
+                  emit(LoginSuccess()),
+                  print(data.customer?.firstName),
+                  // Navigator.push(context,
+                  //     MaterialPageRoute(builder: (context) => RegisterView()))
+                });
   }
 
   @override

@@ -17,6 +17,10 @@ class AppStrings {
 
   static const skip = "Skip";
   static const ok = "OK";
+  static const retry = "Retry";
+
+  // ? forgot password Strings
+  static const resetPassword = "Reset password";
 
   // ? login Strings
   static const login = "Login";
@@ -28,6 +32,15 @@ class AppStrings {
 
   static const emailError = "Please enter your eamil";
   static const passwordError = "Please enter your password";
+
+  // ? home Strings
+  static const myProfile = "My profile";
+  static const enterSearch = "Enter your search";
+  static const myOrders = "My orders";
+  static const myWish = "My wish";
+  static const categories = "Categories";
+  static const cookies = "Cookies";
+  static const iceCream = "Ice cream";
 
   // ? main Strings
   static const home = "Home";

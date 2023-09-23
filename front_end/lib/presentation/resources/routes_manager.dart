@@ -2,11 +2,11 @@ import 'package:cookiestudio/app/di.dart';
 import 'package:cookiestudio/presentation/features/login/view/login_view.dart';
 import 'package:cookiestudio/presentation/features/onboarding/view/onboarding_view.dart';
 import 'package:flutter/material.dart';
-import 'package:cookiestudio/presentation/features/forgot_password/forgot_password_view.dart';
+import 'package:cookiestudio/presentation/features/forgot_password/view/forgot_password_view.dart';
 import 'package:cookiestudio/presentation/features/main/main_view.dart';
 import 'package:cookiestudio/presentation/features/register/view/register_view.dart';
 import 'package:cookiestudio/presentation/resources/strings_manager.dart';
-import 'package:cookiestudio/presentation/features/splash/splash_view.dart';
+import 'package:cookiestudio/presentation/features/splash/view/splash_view.dart';
 import 'package:cookiestudio/presentation/features/store_details/store_details_view.dart';
 
 class Routes {
@@ -36,6 +36,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => RegisterView());
 
       case Routes.forgotPasswordRoute:
+        initForgotPasswordModule();
         return MaterialPageRoute(builder: (_) => ForgotPasswordView());
 
       case Routes.mainRoute:

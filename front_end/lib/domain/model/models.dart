@@ -36,3 +36,8 @@ class Authentication {
   Contacts? contacts;
   Authentication(this.customer, this.contacts);
 }
+
+class ForgotPassword {
+  String support;
+  ForgotPassword(this.support);
+}

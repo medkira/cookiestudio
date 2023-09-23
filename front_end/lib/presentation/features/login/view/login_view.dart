@@ -1,3 +1,4 @@
+import 'package:cookiestudio/app/app_prefs.dart';
 import 'package:cookiestudio/app/di.dart';
 import 'package:cookiestudio/presentation/common/show_dialog_widget/show_dialog.dart';
 import 'package:cookiestudio/presentation/resources/assets_manager.dart';
@@ -20,14 +21,15 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   final LoginViewmodelCubit loginViewModel = instance<LoginViewmodelCubit>();
+  final AppPreferences _appPreferences = instance<AppPreferences>();
 
-  void bind() {
+  void _bind() {
     loginViewModel.start();
   }
 
   @override
   void initState() {
-    bind();
+    _bind();
     super.initState();
   }
 
@@ -47,6 +49,9 @@ class _LoginViewState extends State<LoginView> {
             _showLoginFailureDialogJsonAnimation(context, state.apiMessage);
           }
           if (state is LoginSuccess) {
+            // save that  user is already logged in
+            _appPreferences.setUserLoggedIn();
+            // naviagte to main  route
             Navigator.pushNamed(context, Routes.mainRoute);
           }
         },
@@ -198,12 +203,16 @@ Widget _loginButton() {
 }
 
 Widget _forgetPasswordButton() {
-  return TextButton(
-    onPressed: () {},
-    child: const Text(
-      AppStrings.forgetPassword,
-    ),
-  );
+  return Builder(builder: (context) {
+    return TextButton(
+      onPressed: () {
+        Navigator.pushNamed(context, Routes.forgotPasswordRoute);
+      },
+      child: const Text(
+        AppStrings.forgetPassword,
+      ),
+    );
+  });
 }
 
 Widget _registerButton() {
@@ -312,48 +321,38 @@ class CounterPage extends StatelessWidget {
   }
 }
 
+// BlocBuilder<LoginViewmodelCubit, LoginViewmodelState>(
+//           builder: (context, state) {
+//             print("count rebuild");
+//             if (state is LoginViewmodelCounterState) {
+//               return Container(
+//                 child: Text("${(state).count}"),
+//               );
+//             } else {
+//               return Container(
+//                 child: Text("{(countstate)."),
+//               );
+//             }
+//           },
+//         ),
+//         BlocBuilder<LoginViewmodelCubit, LoginViewmodelState>(
+//           builder: (context, state) {
+//             print("counter button rebuild");
+//             return ElevatedButton(
+//               child: const Icon(Icons.remove),
+//               onPressed: () =>
+//                   context.read<LoginViewmodelCubit>().decrement(),
+//               // onPressed: () => context.read<LoginViewmodelCubit>().login(context),
+//             );
+//           },
+//         ),
 
+// AppServiceClient _appServiceClient = AppServiceClient(dio);
+// RemoteDataSource _remoteDataSource = RemoteDataSourceImpl(_appServiceClient);
+// Repository _repository =RepositoryImpl(_remoteDataSource, _networkInfo);
+// final  LoginUseCase  _loginUseCase = LoginUseCase(_repository;)
 
-
-
-
-  // BlocBuilder<LoginViewmodelCubit, LoginViewmodelState>(
-  //           builder: (context, state) {
-  //             print("count rebuild");
-  //             if (state is LoginViewmodelCounterState) {
-  //               return Container(
-  //                 child: Text("${(state).count}"),
-  //               );
-  //             } else {
-  //               return Container(
-  //                 child: Text("{(countstate)."),
-  //               );
-  //             }
-  //           },
-  //         ),
-  //         BlocBuilder<LoginViewmodelCubit, LoginViewmodelState>(
-  //           builder: (context, state) {
-  //             print("counter button rebuild");
-  //             return ElevatedButton(
-  //               child: const Icon(Icons.remove),
-  //               onPressed: () =>
-  //                   context.read<LoginViewmodelCubit>().decrement(),
-  //               // onPressed: () => context.read<LoginViewmodelCubit>().login(context),
-  //             );
-  //           },
-  //         ),
-
-
-
-    // AppServiceClient _appServiceClient = AppServiceClient(dio);
-  // RemoteDataSource _remoteDataSource = RemoteDataSourceImpl(_appServiceClient);
-  // Repository _repository =RepositoryImpl(_remoteDataSource, _networkInfo);
-  // final  LoginUseCase  _loginUseCase = LoginUseCase(_repository;)
-
-
-
-
-  // Future<void> _showLoginFailureDialogJsonAnimation(
+// Future<void> _showLoginFailureDialogJsonAnimation(
 //     BuildContext context, String apiMessage) {
 //   return showDialog(
 //     context: context,
@@ -384,7 +383,6 @@ class CounterPage extends StatelessWidget {
 //     },
 //   );
 // }
-
 
 // Future<void> _showLoginFailureDialog(BuildContext context, String apiMessage) {
 //   return showDialog(

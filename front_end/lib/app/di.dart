@@ -5,8 +5,11 @@ import 'package:cookiestudio/data/network/app_api.dart';
 import 'package:cookiestudio/data/network/dio_factory.dart';
 import 'package:cookiestudio/data/network/network_info.dart';
 import 'package:cookiestudio/data/repository/repository_impl.dart';
+import 'package:cookiestudio/domain/model/models.dart';
 import 'package:cookiestudio/domain/repository/repository.dart';
+import 'package:cookiestudio/domain/usecase/forgot_password_usecase.dart';
 import 'package:cookiestudio/domain/usecase/login_usecase.dart';
+import 'package:cookiestudio/presentation/features/forgot_password/viewmodel/cubit/forgot_password_viewmodel_cubit.dart';
 import 'package:cookiestudio/presentation/features/login/viewmodel/cubit/login_viewmodel_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
@@ -54,5 +57,14 @@ initLoginModule() {
 
     instance.registerFactory<LoginViewmodelCubit>(
         () => LoginViewmodelCubit(instance<LoginUseCase>()));
+  }
+}
+
+initForgotPasswordModule() {
+  if (!GetIt.I.isRegistered<ForgotPasswordUseCase>()) {
+    instance.registerFactory<ForgotPasswordUseCase>(
+        () => ForgotPasswordUseCase(instance<Repository>()));
+    instance.registerFactory<ForgotPasswordViewmodelCubit>(
+        () => ForgotPasswordViewmodelCubit(instance<ForgotPasswordUseCase>()));
   }
 }

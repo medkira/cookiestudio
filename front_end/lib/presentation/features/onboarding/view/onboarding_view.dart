@@ -1,3 +1,5 @@
+import 'package:cookiestudio/app/app_prefs.dart';
+import 'package:cookiestudio/app/di.dart';
 import 'package:cookiestudio/domain/model/models.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -19,7 +21,11 @@ class OnboardingView extends StatefulWidget {
 
 class _OnboardingViewState extends State<OnboardingView> {
   final OnboardingViewmodelCubit viewModel = OnboardingViewmodelCubit();
+
+  final AppPreferences _appPreferences = instance<AppPreferences>();
   void bind() {
+    // set that user already viewed onboarding screen once
+    _appPreferences.setOnBoardingScreenViewed();
     viewModel.start();
   }
 

@@ -16,9 +16,9 @@ ThemeData getApplicationTheme() {
 
     // ? cardviw theme
     cardTheme: CardTheme(
-        color: lightColorScheme.primaryContainer,
+        color: lightColorScheme.surface,
         shadowColor: lightColorScheme.shadow,
-        elevation: AppSize.s4),
+        elevation: AppSize.s1_5),
     // ? app bar theme
     appBarTheme: AppBarTheme(
         centerTitle: true,
@@ -60,12 +60,14 @@ ThemeData getApplicationTheme() {
           fontSize: FontSize.s28,
         ),
         titleMedium: getMediumStyle(
-            color: lightColorScheme.onBackground, fontSize: FontSize.s18),
+            color: lightColorScheme.onPrimaryContainer, fontSize: FontSize.s18),
+        titleLarge: getMediumStyle(
+            color: lightColorScheme.onSurface, fontSize: FontSize.s18),
         bodySmall: getMediumStyle(color: lightColorScheme.onSurfaceVariant),
-        bodyLarge: getSemiBoldStyle(
-            color: lightColorScheme.secondary, fontSize: FontSize.s18),
-        headlineLarge: getBoldStyle(
-            color: lightColorScheme.secondary, fontSize: FontSize.s35)),
+        bodyLarge: getRegularStyle(
+            color: lightColorScheme.onBackground, fontSize: FontSize.s28),
+        headlineLarge: getMediumStyle(
+            color: lightColorScheme.onPrimary, fontSize: FontSize.s32)),
 
     // ?input decoration theme (text form field)
     inputDecorationTheme: InputDecorationTheme(

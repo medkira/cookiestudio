@@ -3,7 +3,7 @@ import 'package:cookiestudio/data/mapper/mapper.dart';
 import 'package:cookiestudio/data/network/error_handler.dart';
 import 'package:cookiestudio/data/network/failure.dart';
 import 'package:cookiestudio/data/network/network_info.dart';
-import 'package:cookiestudio/data/network/requests.dart';
+import 'package:cookiestudio/data/request/requests.dart';
 import 'package:cookiestudio/domain/model/models.dart';
 import 'package:cookiestudio/domain/repository/repository.dart';
 import 'package:dartz/dartz.dart';
@@ -40,6 +40,28 @@ class RepositoryImpl implements Repository {
       // # return either left
       return Left(DataSource.NO_INTERNET_CONNECTION
           .getFailure()); //Failure(ResponseCode.NO_INTERNET_CONNECTION, ResponseMessage.NO_INTERNET_CONNECTION)
+    }
+  }
+
+  @override
+  Future<Either<Failure, ForgotPassword>> forgotPassword(
+      ForgotPasswordRequest forgotPasswordRequest) async {
+    if (await _networkInfo.isConnected) {
+      try {
+        final response =
+            await _remoteDataSource.forgotPassword(forgotPasswordRequest);
+
+        if (response.status == ApiInternalStatus.SUCCESS) {
+          return Right(response.toDomain());
+        } else {
+          return Left(Failure(ApiInternalStatus.FAILURE,
+              response.message ?? ResponseMessage.DEFAULT));
+        }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
   }
 }

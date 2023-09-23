@@ -36,4 +36,36 @@ class ShowDialogResponse {
       },
     );
   }
+
+  static Future<void> showSuccessDialogJsonAnimation(
+      BuildContext context, String apiMessage) {
+    return showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          content: SizedBox(
+            height: AppSize.s350,
+            child: Column(
+              children: [
+                getAnimatedImage(JsonAssets.loading),
+                const SizedBox(height: AppSize.s20),
+                Text(
+                  textAlign: TextAlign.center,
+                  apiMessage,
+                  style: Theme.of(context).textTheme.bodyLarge,
+                ),
+              ],
+            ),
+          ),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text(AppStrings.ok))
+          ],
+        );
+      },
+    );
+  }
 }

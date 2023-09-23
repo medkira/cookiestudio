@@ -5,19 +5,19 @@ import 'package:cookiestudio/domain/repository/repository.dart';
 import 'package:cookiestudio/domain/usecase/base_usecase.dart';
 import 'package:dartz/dartz.dart';
 
-class LoginUseCase implements BaseUseCase<LoginUseCaseInput, Authentication> {
+class ForgotPasswordUseCase
+    implements BaseUseCase<ForgotPasswordUseCaseInput, ForgotPassword> {
   final Repository _repository;
-  LoginUseCase(this._repository);
+  ForgotPasswordUseCase(this._repository);
 
   @override
-  Future<Either<Failure, Authentication>> execute(
-      LoginUseCaseInput input) async {
-    return await _repository.login(LoginRequest(input.email, input.password));
+  Future<Either<Failure, ForgotPassword>> execute(
+      ForgotPasswordUseCaseInput input) async {
+    return await _repository.forgotPassword(ForgotPasswordRequest(input.email));
   }
 }
 
-class LoginUseCaseInput {
+class ForgotPasswordUseCaseInput {
   String email;
-  String password;
-  LoginUseCaseInput(this.email, this.password);
+  ForgotPasswordUseCaseInput(this.email);
 }
