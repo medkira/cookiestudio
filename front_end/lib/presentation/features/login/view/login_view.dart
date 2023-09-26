@@ -5,7 +5,7 @@ import 'package:cookiestudio/presentation/resources/assets_manager.dart';
 import 'package:cookiestudio/presentation/resources/color_manager.dart';
 import 'package:cookiestudio/presentation/resources/routes_manager.dart';
 import 'package:cookiestudio/presentation/resources/strings_manager.dart';
-import 'package:cookiestudio/presentation/resources/validator_manager.dart';
+import 'package:cookiestudio/presentation/resources/form_validator_manager.dart';
 import 'package:cookiestudio/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -216,10 +216,14 @@ Widget _forgetPasswordButton() {
 }
 
 Widget _registerButton() {
-  return TextButton(
-    onPressed: () {},
-    child: const Text(AppStrings.register),
-  );
+  return Builder(builder: (context) {
+    return TextButton(
+      onPressed: () {
+        Navigator.pushNamed(context, Routes.registerRoute);
+      },
+      child: const Text(AppStrings.register),
+    );
+  });
 }
 
 class CounterPage extends StatelessWidget {

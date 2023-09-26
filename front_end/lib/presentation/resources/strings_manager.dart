@@ -33,6 +33,9 @@ class AppStrings {
   static const emailError = "Please enter your eamil";
   static const passwordError = "Please enter your password";
 
+  // ? register Strings
+  static const confirmPassword = "Confirm your password";
+
   // ? home Strings
   static const myProfile = "My profile";
   static const enterSearch = "Enter your search";

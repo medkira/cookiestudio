@@ -44,7 +44,7 @@ class ShowDialogResponse {
       builder: (BuildContext context) {
         return AlertDialog(
           content: SizedBox(
-            height: AppSize.s350,
+            height: AppSize.s380,
             child: Column(
               children: [
                 getAnimatedImage(JsonAssets.loading),
@@ -52,7 +52,7 @@ class ShowDialogResponse {
                 Text(
                   textAlign: TextAlign.center,
                   apiMessage,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
             ),

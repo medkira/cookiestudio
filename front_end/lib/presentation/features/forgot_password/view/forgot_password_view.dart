@@ -4,7 +4,7 @@ import 'package:cookiestudio/presentation/features/forgot_password/viewmodel/cub
 import 'package:cookiestudio/presentation/resources/assets_manager.dart';
 import 'package:cookiestudio/presentation/resources/color_manager.dart';
 import 'package:cookiestudio/presentation/resources/strings_manager.dart';
-import 'package:cookiestudio/presentation/resources/validator_manager.dart';
+import 'package:cookiestudio/presentation/resources/form_validator_manager.dart';
 import 'package:cookiestudio/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -131,7 +131,7 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
 
 Widget _emailInput(BuildContext context) {
   return SizedBox(
-    height: AppSize.s75,
+    height: AppSize.s80,
     child: TextFormField(
       onChanged: (value) =>
           context.read<ForgotPasswordViewmodelCubit>().setUserEmail(value),

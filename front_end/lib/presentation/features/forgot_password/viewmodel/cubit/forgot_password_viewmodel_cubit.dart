@@ -25,16 +25,19 @@ class ForgotPasswordViewmodelCubit extends Cubit<ForgotPasswordViewmodelState>
 
   @override
   resetPassword() async {
-    emit(ForgotPasswordLoading());
-    (await _forgotPasswordUseCase.execute(ForgotPasswordUseCaseInput(email)))
-        .fold(
-            (failure) => {
-                  emit(ForgotPasswordFailure(failure.message)),
-                },
-            (data) => {
-                  print(data),
-                  emit(ForgotPasswordSuccess(data.support)),
-                });
+    if (formKey.currentState!.validate()) {
+      emit(ForgotPasswordLoading());
+      (await _forgotPasswordUseCase.execute(ForgotPasswordUseCaseInput(email)))
+          .fold(
+        (failure) => {
+          emit(ForgotPasswordFailure(failure.message)),
+        },
+        (data) => {
+          print(data),
+          emit(ForgotPasswordSuccess(data.support)),
+        },
+      );
+    }
   }
 
   @override
