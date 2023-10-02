@@ -70,3 +70,6 @@ class ForgotPasswordResponse extends BaseResponse {
 
   Map<String, dynamic> toJson() => _$ForgotPasswordResponseToJson(this);
 }
+
+@JsonSerializable()
+class RegisterResponse extends BaseResponse {}

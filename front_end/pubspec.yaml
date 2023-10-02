@@ -60,6 +60,8 @@ dependencies:
   socket_io: ^1.0.1
   connectivity_plus: ^4.0.2
   lottie: ^2.6.0
+  country_code_picker: ^3.0.0
+  image_picker: ^1.0.4
 
 dev_dependencies:
   flutter_test:
@@ -91,6 +93,7 @@ flutter:
     - assets/images/onboarding_logo4.svg
     - assets/json/loading.json
     - assets/json/error.json
+    - assets/json/success.json
 
 
 

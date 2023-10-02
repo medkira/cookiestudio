@@ -58,8 +58,8 @@ class _ForgotPasswordViewState extends State<ForgotPasswordView> {
 
   Future<void> _showLoginSuccessDialogJsonAnimation(
       BuildContext context, String apiMessage) {
-    return ShowDialogResponse.showSuccessDialogJsonAnimation(
-        context, apiMessage);
+    return ShowDialogResponse.showSuccessDialogJsonAnimation(context,
+        apiMessage: apiMessage);
   }
 
   Widget _getContentWidget() {

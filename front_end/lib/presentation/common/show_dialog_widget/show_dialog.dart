@@ -37,8 +37,8 @@ class ShowDialogResponse {
     );
   }
 
-  static Future<void> showSuccessDialogJsonAnimation(
-      BuildContext context, String apiMessage) {
+  static Future<void> showSuccessDialogJsonAnimation(BuildContext context,
+      {String apiMessage = "", bool repeatAnimation = true}) {
     return showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -47,7 +47,8 @@ class ShowDialogResponse {
             height: AppSize.s380,
             child: Column(
               children: [
-                getAnimatedImage(JsonAssets.loading),
+                getAnimatedImage(JsonAssets.success,
+                    repeatAnimation: repeatAnimation),
                 const SizedBox(height: AppSize.s20),
                 Text(
                   textAlign: TextAlign.center,
