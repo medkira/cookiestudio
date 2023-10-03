@@ -1,4 +1,5 @@
 import 'package:cookiestudio/app/app_prefs.dart';
+import 'package:cookiestudio/app/constants.dart';
 import 'package:cookiestudio/app/di.dart';
 import 'package:cookiestudio/presentation/common/show_dialog_widget/show_dialog.dart';
 import 'package:cookiestudio/presentation/features/register/viewmodel/cubit/register_viewmodel_cubit.dart';
@@ -209,9 +210,9 @@ Widget _phoneNumberInput(BuildContext context) {
       Expanded(
         flex: 1,
         child: CountryCodePicker(
-          onChanged: (value) => context
+          onChanged: (country) => context
               .read<RegisterViewmodelCubit>()
-              .setCountryMobileCode(value),
+              .setCountryMobileCode(country.dialCode ?? Constants.empty),
           initialSelection: "+216",
           hideMainText: true,
           showCountryOnly: true,

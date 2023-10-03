@@ -27,7 +27,7 @@ class RegisterViewmodelCubit extends Cubit<RegisterViewmodelState>
   late String password;
   late String confirmPassword;
   late String phoneNumber;
-  late String countryCode;
+  late String countryCode = "+216";
   late String username;
 
   @override
@@ -59,7 +59,7 @@ class RegisterViewmodelCubit extends Cubit<RegisterViewmodelState>
   }
 
   @override
-  setCountryMobileCode(CountryCode countryMobileCode) {
+  setCountryMobileCode(String countryMobileCode) {
     countryCode = countryMobileCode.toString();
   }
 
@@ -91,7 +91,7 @@ class RegisterViewmodelCubit extends Cubit<RegisterViewmodelState>
 }
 
 abstract class RegisterViewModelInputs {
-  setCountryMobileCode(CountryCode countryMobileCode);
+  setCountryMobileCode(String countryMobileCode);
   setUserName(String userName);
   setUserEmail(String userEmail);
   setPassword(String password);
