@@ -1,3 +1,5 @@
+import 'package:cookiestudio/presentation/features/cookies_categories/view/cookies_categories.dart';
+
 class AppStrings {
   static const noRouteFound = "No Route Found.";
 
@@ -43,11 +45,13 @@ class AppStrings {
       "register is done, you can now access your account.";
 
   // ? home Strings
-  static const myProfile = "My profile";
+  static const greetingMessage = "Welcome";
   static const enterSearch = "Enter your search";
   static const myOrders = "My orders";
   static const myWish = "My wish";
   static const categories = "Categories";
+  static const newCookie = "New";
+  static const plus = "+ 3 Products";
   static const cookies = "Cookies";
   static const iceCream = "Ice cream";
 
@@ -56,4 +60,9 @@ class AppStrings {
   static const search = "Search";
   static const profile = "Profile";
   static const settings = "Settings";
+  static const shoppingBag = "Shopping Bag";
+
+  // ? coockies categories Strings
+  static const pickup = "Pickup";
+  static const cookiesCategories = "Cookies Categories";
 }

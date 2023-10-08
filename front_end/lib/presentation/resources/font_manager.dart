@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FontConstants {
-  static const String fontFamily = "Rubik";
+  static const String fontFamily = "CaveatBrush";
 }
 
 class FontWeightManager {
@@ -30,5 +30,6 @@ class FontSize {
   static const double s32 = 32;
   static const double s35 = 35;
   static const double s38 = 38;
+  static const double s40 = 40;
   static const double s44 = 44;
 }

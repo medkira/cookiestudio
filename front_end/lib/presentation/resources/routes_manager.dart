@@ -1,4 +1,5 @@
 import 'package:cookiestudio/app/di.dart';
+import 'package:cookiestudio/presentation/features/cookies_categories/view/cookies_categories.dart';
 import 'package:cookiestudio/presentation/features/login/view/login_view.dart';
 import 'package:cookiestudio/presentation/features/onboarding/view/onboarding_view.dart';
 import 'package:flutter/material.dart';
@@ -11,12 +12,14 @@ import 'package:cookiestudio/presentation/features/store_details/store_details_v
 
 class Routes {
   static const String splashRoute = "/";
+  static const String mainRoute = "/main";
   static const String loginRoute = "/login";
   static const String registerRoute = "/register";
   static const String forgotPasswordRoute = "/forgotPassword";
   static const String onBoardingRoute = "/onBoarding";
-  static const String mainRoute = "/main";
   static const String storeDetailsRoute = "/storeDetails";
+
+  static const String cookieCategories = "/cookieCategories";
 }
 
 class RouteGenerator {
@@ -45,6 +48,9 @@ class RouteGenerator {
 
       case Routes.storeDetailsRoute:
         return MaterialPageRoute(builder: (_) => StoreDetailsView());
+
+      case Routes.cookieCategories:
+        return MaterialPageRoute(builder: (_) => CookiesCategoriesView());
 
       default:
         return unDefinedRoute();

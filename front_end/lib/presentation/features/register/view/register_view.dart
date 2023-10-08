@@ -224,6 +224,7 @@ Widget _phoneNumberInput(BuildContext context) {
         child: SizedBox(
           height: AppSize.s75,
           child: TextFormField(
+            keyboardType: TextInputType.number,
             onChanged: (value) =>
                 context.read<RegisterViewmodelCubit>().setMobileNumber(value),
             validator: (value) =>
@@ -253,6 +254,7 @@ Widget _registerButton() {
           child: ElevatedButton(
             onPressed: () {
               if (state is! RegisterLoading) {
+                HapticFeedback.lightImpact();
                 context.read<RegisterViewmodelCubit>().register();
               }
             },

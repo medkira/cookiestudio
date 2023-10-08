@@ -235,11 +235,11 @@ class CounterPage extends StatelessWidget {
       appBar: AppBar(title: const Text('Counter')),
       body: Column(
         children: [
-          Container(
+          SizedBox(
             height: AppSize.s100,
             child: BlocBuilder<LoginViewmodelCubit, LoginViewmodelState>(
               builder: (context, state) {
-                print("widget rebuild");
+                // print("widget rebuild");
                 if (state is LoginInfo) {
                   return Center(child: Text((state).email));
                 } else {

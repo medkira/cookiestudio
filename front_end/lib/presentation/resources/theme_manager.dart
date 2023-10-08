@@ -60,15 +60,17 @@ ThemeData getApplicationTheme() {
           fontSize: FontSize.s28,
         ),
         titleMedium: getMediumStyle(
-            color: lightColorScheme.onPrimaryContainer, fontSize: FontSize.s18),
+            color: lightColorScheme.primary, fontSize: FontSize.s18),
+        titleSmall: getMediumStyle(
+            color: lightColorScheme.primary, fontSize: FontSize.s18),
         titleLarge: getMediumStyle(
             color: lightColorScheme.onSurface, fontSize: FontSize.s18),
         bodySmall: getMediumStyle(
-            color: lightColorScheme.onSurfaceVariant, fontSize: FontSize.s15),
-        bodyLarge: getRegularStyle(
-            color: lightColorScheme.onBackground, fontSize: FontSize.s24),
+            color: lightColorScheme.outlineVariant, fontSize: FontSize.s15),
+        bodyLarge: getMediumStyle(
+            color: lightColorScheme.onBackground, fontSize: FontSize.s30),
         headlineLarge: getMediumStyle(
-            color: lightColorScheme.onPrimary, fontSize: FontSize.s32)),
+            color: lightColorScheme.onPrimary, fontSize: FontSize.s40)),
 
     // ?input decoration theme (text form field)
     inputDecorationTheme: InputDecorationTheme(

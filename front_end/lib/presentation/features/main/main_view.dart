@@ -1,12 +1,11 @@
 import 'package:cookiestudio/presentation/features/main/home/view/home_view.dart';
 import 'package:cookiestudio/presentation/features/main/profile/profile_view.dart';
 import 'package:cookiestudio/presentation/features/main/search/search_view.dart';
-import 'package:cookiestudio/presentation/features/main/settings/settings_view.dart';
+import 'package:cookiestudio/presentation/features/main/shopping_bag/shopping_bag.dart';
 import 'package:cookiestudio/presentation/resources/color_manager.dart';
+import 'package:cookiestudio/presentation/resources/strings_manager.dart';
 import 'package:cookiestudio/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
-
-import '../../resources/strings_manager.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -32,8 +31,8 @@ class _MainViewState extends State<MainView> {
   List<String> titles = [
     AppStrings.home,
     AppStrings.search,
+    AppStrings.shoppingBag,
     AppStrings.profile,
-    AppStrings.settings,
   ];
   @override
   Widget build(BuildContext context) {
@@ -46,30 +45,37 @@ class _MainViewState extends State<MainView> {
       ),
       bottomNavigationBar: Container(
         margin: const EdgeInsets.symmetric(
-            horizontal: AppMargin.m12, vertical: AppMargin.m26),
+            horizontal: AppMargin.m12, vertical: AppMargin.m22),
         height: AppSize.s70,
         child: ClipRRect(
-          borderRadius: const BorderRadius.all(Radius.circular(AppSize.s32)),
+          borderRadius: const BorderRadius.all(Radius.circular(AppSize.s30)),
           child: Theme(
             data: ThemeData(
               splashColor: Colors.transparent,
             ),
             child: BottomNavigationBar(
               type: BottomNavigationBarType.fixed,
-              backgroundColor: lightColorScheme.secondary,
+              backgroundColor: lightColorScheme.primary,
               elevation: AppSize.s12,
               items: const [
-                BottomNavigationBarItem(icon: Icon(Icons.home), label: "home"),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.search), label: "search"),
+                    icon: Icon(Icons.home_rounded, size: AppSize.s35),
+                    label: "home"),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.account_box), label: "profile"),
+                    icon: Icon(Icons.search_rounded, size: AppSize.s35),
+                    label: "search"),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.settings), label: "settings"),
+                    icon: Icon(Icons.shopping_bag_outlined, size: AppSize.s35),
+                    label: "shopping bag"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.person_rounded, size: AppSize.s35),
+                    label: "profile"),
               ],
               selectedItemColor: lightColorScheme.onSecondary,
               currentIndex: _selectedTab,
               onTap: (index) => _changeTab(index),
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
             ),
           ),
         ),
