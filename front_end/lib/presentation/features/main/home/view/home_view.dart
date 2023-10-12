@@ -39,6 +39,7 @@ class _HomeViewState extends State<HomeView> {
 
 Widget _getContentWidget() {
   return SingleChildScrollView(
+    physics: const NeverScrollableScrollPhysics(),
     child: Column(
       children: [
         _topSectionBar(),

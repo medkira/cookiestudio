@@ -70,7 +70,10 @@ ThemeData getApplicationTheme() {
         bodyLarge: getMediumStyle(
             color: lightColorScheme.onBackground, fontSize: FontSize.s30),
         headlineLarge: getMediumStyle(
-            color: lightColorScheme.onPrimary, fontSize: FontSize.s40)),
+            color: lightColorScheme.onPrimary, fontSize: FontSize.s40),
+        headlineMedium: getMediumStyle(
+            color: lightColorScheme.onPrimaryContainer,
+            fontSize: FontSize.s22)),
 
     // ?input decoration theme (text form field)
     inputDecorationTheme: InputDecorationTheme(
