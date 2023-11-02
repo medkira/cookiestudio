@@ -10,7 +10,6 @@ import 'package:cookiestudio/presentation/resources/routes_manager.dart';
 import 'package:cookiestudio/presentation/resources/strings_manager.dart';
 import 'package:cookiestudio/presentation/resources/values_manager.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import '../viewmodel/cubit/onboarding_viewmodel_cubit.dart';
 
 class OnboardingView extends StatefulWidget {
