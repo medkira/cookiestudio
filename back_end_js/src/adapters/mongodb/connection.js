@@ -9,6 +9,10 @@ export default function connection(mongoose){
       console.log("MongoDb connection error");
     });
   }
+
+  return {
+    connectToMongo,
+  };
 }
 
 
