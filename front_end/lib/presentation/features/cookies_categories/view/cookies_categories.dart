@@ -123,7 +123,7 @@ Widget _tabBarView() {
   return Builder(
     builder: (context) {
       return SizedBox(
-        height: (MediaQuery.of(context).size.height - 150) * 0.95,
+        height: (MediaQuery.of(context).size.height - 190) * 0.95,
         child: TabBarView(
           physics: const NeverScrollableScrollPhysics(),
           children: [

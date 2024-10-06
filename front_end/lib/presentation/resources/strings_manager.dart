@@ -65,4 +65,7 @@ class AppStrings {
   // ? coockies categories Strings
   static const pickup = "Pickup";
   static const cookiesCategories = "Cookies Categories";
+
+  // ? profile page
+  static const logout = "Logout";
 }

@@ -12,7 +12,7 @@ class ShowDialogResponse {
       builder: (BuildContext context) {
         return AlertDialog(
           content: SizedBox(
-            height: AppSize.s350,
+            height: AppSize.s380,
             child: Column(
               children: [
                 getAnimatedImage(JsonAssets.error),

@@ -68,7 +68,7 @@ ThemeData getApplicationTheme() {
         bodySmall: getMediumStyle(
             color: lightColorScheme.outlineVariant, fontSize: FontSize.s15),
         bodyLarge: getMediumStyle(
-            color: lightColorScheme.onBackground, fontSize: FontSize.s30),
+            color: lightColorScheme.onBackground, fontSize: FontSize.s32),
         headlineLarge: getMediumStyle(
             color: lightColorScheme.onPrimary, fontSize: FontSize.s40),
         headlineMedium: getMediumStyle(

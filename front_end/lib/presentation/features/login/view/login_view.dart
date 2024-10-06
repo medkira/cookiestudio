@@ -226,104 +226,104 @@ Widget _registerButton() {
   });
 }
 
-class CounterPage extends StatelessWidget {
-  const CounterPage({super.key});
+// class CounterPage extends StatelessWidget {
+//   const CounterPage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Counter')),
-      body: Column(
-        children: [
-          SizedBox(
-            height: AppSize.s100,
-            child: BlocBuilder<LoginViewmodelCubit, LoginViewmodelState>(
-              builder: (context, state) {
-                // print("widget rebuild");
-                if (state is LoginInfo) {
-                  return Center(child: Text((state).email));
-                } else {
-                  return const Center(child: Text("no state "));
-                }
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(title: const Text('Counter')),
+//       body: Column(
+//         children: [
+//           SizedBox(
+//             height: AppSize.s100,
+//             child: BlocBuilder<LoginViewmodelCubit, LoginViewmodelState>(
+//               builder: (context, state) {
+//                 // print("widget rebuild");
+//                 if (state is LoginInfo) {
+//                   return Center(child: Text((state).email));
+//                 } else {
+//                   return const Center(child: Text("no state "));
+//                 }
 
-                // if (state is LoginViewmodelInitial) {
-                //   return const Center(child: Text('state from init is initial '));
-                // } else if (state is LoginViewmodelCounterState) {
-                //   return Center(child: Text('${(state).count}'));
-                // } else {
-                //   return const Center(child: Text('empty'));
-                // }
-              },
-            ),
-          ),
-          BlocListener<LoginViewmodelCubit, LoginViewmodelState>(
-            listener: (context, state) {
-              if (state is LoginInfo) {
-                print("hiiiiii");
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text("Welcome, ${state.email}!"),
-                  ),
-                );
-              } else {
-                // return const Center(child: Text("no state "));
-              }
-            },
-            child: Container(),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(AppPadding.p14),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Form(
-                  key: context.read<LoginViewmodelCubit>().formKey,
-                  child: TextFormField(
-                    onChanged: (value) =>
-                        context.read<LoginViewmodelCubit>().setUserEmail(value),
-                    validator: (value) {
-                      if (value!.length < 2) {
-                        return "value need to be more than 2  ";
-                      }
-                      return null;
-                    },
-                    controller:
-                        context.read<LoginViewmodelCubit>().emailController,
-                    style: const TextStyle(fontSize: AppSize.s20),
-                  ),
-                ),
-                const SizedBox(height: AppSize.s16),
-                TextFormField(
-                  onChanged: (value) =>
-                      context.read<LoginViewmodelCubit>().setPassword(value),
-                  controller:
-                      context.read<LoginViewmodelCubit>().passwordController,
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-      floatingActionButton: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
-          ElevatedButton(
-            child: const Icon(Icons.add),
-            onPressed: () => context.read<LoginViewmodelCubit>().login(),
-            // onPressed: () => (),
-          ),
-          const SizedBox(height: 4),
-          ElevatedButton(
-            child: const Icon(Icons.remove),
-            // onPressed: () => context.read<LoginViewmodelCubit>().decrement(),
-            onPressed: () => context.read<LoginViewmodelCubit>().login(),
-          ),
-        ],
-      ),
-    );
-  }
-}
+//                 // if (state is LoginViewmodelInitial) {
+//                 //   return const Center(child: Text('state from init is initial '));
+//                 // } else if (state is LoginViewmodelCounterState) {
+//                 //   return Center(child: Text('${(state).count}'));
+//                 // } else {
+//                 //   return const Center(child: Text('empty'));
+//                 // }
+//               },
+//             ),
+//           ),
+//           BlocListener<LoginViewmodelCubit, LoginViewmodelState>(
+//             listener: (context, state) {
+//               if (state is LoginInfo) {
+//                 print("hiiiiii");
+//                 ScaffoldMessenger.of(context).showSnackBar(
+//                   SnackBar(
+//                     content: Text("Welcome, ${state.email}!"),
+//                   ),
+//                 );
+//               } else {
+//                 // return const Center(child: Text("no state "));
+//               }
+//             },
+//             child: Container(),
+//           ),
+//           Padding(
+//             padding: const EdgeInsets.all(AppPadding.p14),
+//             child: Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 Form(
+//                   key: context.read<LoginViewmodelCubit>().formKey,
+//                   child: TextFormField(
+//                     onChanged: (value) =>
+//                         context.read<LoginViewmodelCubit>().setUserEmail(value),
+//                     validator: (value) {
+//                       if (value!.length < 2) {
+//                         return "value need to be more than 2  ";
+//                       }
+//                       return null;
+//                     },
+//                     controller:
+//                         context.read<LoginViewmodelCubit>().emailController,
+//                     style: const TextStyle(fontSize: AppSize.s20),
+//                   ),
+//                 ),
+//                 const SizedBox(height: AppSize.s16),
+//                 TextFormField(
+//                   onChanged: (value) =>
+//                       context.read<LoginViewmodelCubit>().setPassword(value),
+//                   controller:
+//                       context.read<LoginViewmodelCubit>().passwordController,
+//                 ),
+//               ],
+//             ),
+//           ),
+//         ],
+//       ),
+//       floatingActionButton: Column(
+//         crossAxisAlignment: CrossAxisAlignment.end,
+//         mainAxisAlignment: MainAxisAlignment.end,
+//         children: <Widget>[
+//           ElevatedButton(
+//             child: const Icon(Icons.add),
+//             onPressed: () => context.read<LoginViewmodelCubit>().login(),
+//             // onPressed: () => (),
+//           ),
+//           const SizedBox(height: 4),
+//           ElevatedButton(
+//             child: const Icon(Icons.remove),
+//             // onPressed: () => context.read<LoginViewmodelCubit>().decrement(),
+//             onPressed: () => context.read<LoginViewmodelCubit>().login(),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
 
 // BlocBuilder<LoginViewmodelCubit, LoginViewmodelState>(
 //           builder: (context, state) {

@@ -43,4 +43,10 @@ class AppPreferences {
   Future<bool> isUserLoggedIn() async {
     return _sharedPreferences.getBool(prefs_key_is_user_logged_in) ?? false;
   }
+
+// ? logout user
+
+  Future<void> setUserLoggedOut() async {
+    _sharedPreferences.setBool(prefs_key_is_user_logged_in, false);
+  }
 }

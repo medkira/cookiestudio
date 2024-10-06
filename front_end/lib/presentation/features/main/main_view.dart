@@ -1,5 +1,5 @@
 import 'package:cookiestudio/presentation/features/main/home/view/home_view.dart';
-import 'package:cookiestudio/presentation/features/main/profile/profile_view.dart';
+import 'package:cookiestudio/presentation/features/main/profile/viewmodel/view/profile_view.dart';
 import 'package:cookiestudio/presentation/features/main/search/search_view.dart';
 import 'package:cookiestudio/presentation/features/main/shopping_bag/shopping_bag.dart';
 import 'package:cookiestudio/presentation/resources/color_manager.dart';
@@ -25,8 +25,8 @@ class _MainViewState extends State<MainView> {
   List<Widget> pages = [
     const HomeView(),
     const SearchView(),
-    const ProfileView(),
     const SettingsView(),
+    const ProfileView(),
   ];
   List<String> titles = [
     AppStrings.home,
